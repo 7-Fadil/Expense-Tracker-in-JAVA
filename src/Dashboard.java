@@ -53,9 +53,10 @@ public class Dashboard extends JFrame {
         reportsMenu.add(annualReportMenuItem);
         menuBar.add(reportsMenu);
 
-        //About us Menu
-        JMenu aboutUsMenu = new JMenu();
-        menuBar.add(aboutUsMenu);
+        JMenu aboutMenu = new JMenu("About"); // Create a new menu
+        JMenuItem aboutDeveloperMenuItem = new JMenuItem("About Developer"); // Create the menu item
+        aboutMenu.add(aboutDeveloperMenuItem); // Add the item to the menu
+        menuBar.add(aboutMenu); // Add the menu to the menu bar
 
         // Set the menu bar
         setJMenuBar(menuBar);
@@ -94,6 +95,11 @@ public class Dashboard extends JFrame {
                 AddExpenseForm addExpenseForm = new AddExpenseForm();
                 addExpenseForm.setVisible(true);
             }
+        });
+
+        // Add an action listener to open the About Developer window
+        aboutDeveloperMenuItem.addActionListener(e -> {
+            new AboutDeveloperWindow().showAboutWindow(); // Call the method to open the About Developer window
         });
 
         viewExpensesMenuItem.addActionListener(new ActionListener() {
